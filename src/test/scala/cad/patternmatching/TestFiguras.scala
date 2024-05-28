@@ -1,41 +1,44 @@
 package cad.patternmatching
 
-import org.scalatest.funspec.AnyFunSpec
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-class TestFiguras extends AnyFunSpec {
+class TestFiguras {
   val medidor = new Medidor
   val graficador = new Graficador
 
-  it("calcula el perímetro de cuadrados") {
-    assert(medidor.perimetroDe(Cuadrado(2)) == 8)
+  @Test
+  def calculaElPerimetroDeCuadrados(): Unit = {
+    assertEquals(8, medidor.perimetroDe(new Cuadrado(2)), 0.01)
   }
 
-  it("calcula el perímetro de círculos") {
-    assert(medidor.perimetroDe(Circulo(2)) == 4 * Math.PI)
+  @Test
+  def calculaElPerimetroDeCirculos(): Unit = {
+    assertEquals(4 * Math.PI, medidor.perimetroDe(new Circulo(4)), 0.01)
   }
 
-  it("calcula el área de cuadrados") {
-    assert(medidor.areaDe(Cuadrado(2)) == 4)
+  @Test
+  def calculaElAreaDeCuadrados(): Unit = {
+    assertEquals(4, medidor.areaDe(new Cuadrado(2)), 0.01)
   }
 
-  it("calcula el área de círculos") {
-    assert(medidor.areaDe(Circulo(2)) == 4 * Math.PI)
+  @Test
+  def calculaElAreaDeCirculos(): Unit = {
+    assertEquals(4 * Math.PI, medidor.areaDe(new Circulo(4)), 0.01)
   }
 
-  it("dibuja cuadrados") {
-    assert(graficador.dibujar(Cuadrado(2)) == "un Cuadrado")
+  @Test
+  def convierteCirculosASVG(): Unit = {
+    assertEquals("<circle radius=2 />", graficador.graficarEnSvg(Circulo(4)))
   }
 
-  it("dibuja círculos de radio 1") {
-    assert(graficador.dibujar(Circulo(1)) == "un Circulo")
+  @Test
+  def convierteCuadradosASVG(): Unit = {
+    assertEquals("<square side=1.0 />", graficador.graficarEnSvg(new Cuadrado(1)))
   }
 
-  it("dibuja círculos especiales") {
-    assert(graficador.dibujar(Circulo(2)) == "un Circulo especial")
-    assert(graficador.dibujar(Circulo(3)) == "un Circulo especial")
-  }
-
-  it("dibuja círculos comunes") {
-    assert(graficador.dibujar(Circulo(4)) == "un Circulo de diametro 8.0")
+  @Test
+  def losCirculosDeRadio1NoTienenElAtributoRadio(): Unit = {
+    assertEquals("<circle />", graficador.graficarEnSvg(new Circulo(2)))
   }
 }

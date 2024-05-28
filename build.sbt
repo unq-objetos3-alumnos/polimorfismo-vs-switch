@@ -2,8 +2,12 @@ name := "PolimorfismoInternoVsExterno"
 
 version := "0.1"
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.14"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.2"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.2" % "test"
-libraryDependencies += "junit" % "junit" % "4.11" % "test"
+libraryDependencies += "com.github.sbt" % "junit-interface" % "0.13.3" % Test
+
+scalacOptions ++= Seq(
+  "-feature",
+  "-Xlint",
+  "-Wconf:cat=other-match-analysis:error",
+)
