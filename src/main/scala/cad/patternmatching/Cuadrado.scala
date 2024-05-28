@@ -1,7 +1,7 @@
 package cad.patternmatching
 
-case class Cuadrado(lado: Double) extends Figura {
-  override val area = lado * lado
+class Cuadrado(lado: Double) extends Figura {
+  override val area: Double = lado * lado
 
-  override val perimetro = 4 * lado
+  override val perimetro: Double = 4 * lado
 }

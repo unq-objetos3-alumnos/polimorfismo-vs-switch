@@ -14,7 +14,7 @@ class TestFiguras {
 
   @Test
   def calculaElPerimetroDeCirculos(): Unit = {
-    assertEquals(4 * Math.PI, medidor.perimetroDe(new Circulo(4)), 0.01)
+    assertEquals(8 * Math.PI, medidor.perimetroDe(new Circulo(4)), 0.01)
   }
 
   @Test
@@ -24,12 +24,12 @@ class TestFiguras {
 
   @Test
   def calculaElAreaDeCirculos(): Unit = {
-    assertEquals(4 * Math.PI, medidor.areaDe(new Circulo(4)), 0.01)
+    assertEquals(16 * Math.PI, medidor.areaDe(new Circulo(4)), 0.01)
   }
 
   @Test
   def convierteCirculosASVG(): Unit = {
-    assertEquals("<circle radius=2 />", graficador.graficarEnSvg(Circulo(4)))
+    assertEquals("<circle radius=4 />", graficador.graficarEnSvg(new Circulo(4)))
   }
 
   @Test
@@ -39,6 +39,6 @@ class TestFiguras {
 
   @Test
   def losCirculosDeRadio1NoTienenElAtributoRadio(): Unit = {
-    assertEquals("<circle />", graficador.graficarEnSvg(new Circulo(2)))
+    assertEquals("<circle />", graficador.graficarEnSvg(new Circulo(1)))
   }
 }
