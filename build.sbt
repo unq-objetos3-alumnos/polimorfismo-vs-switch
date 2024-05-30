@@ -1,4 +1,4 @@
-name := "PolimorfismoInternoVsExterno"
+name := "SeleccionDeComportamiento"
 
 version := "0.1"
 
