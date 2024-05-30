@@ -1,5 +1,5 @@
 package cad.doubledispatch;
 
 public interface Figura {
-    double realizarOperacion(Operacion operacion);
+    <T> T realizarOperacion(OperacionSobreFiguras<T> operacion);
 }

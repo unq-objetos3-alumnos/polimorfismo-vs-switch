@@ -12,7 +12,7 @@ public class Circulo implements Figura {
     }
 
     @Override
-    public double realizarOperacion(Operacion operacion) {
+    public <T> T realizarOperacion(OperacionSobreFiguras<T> operacion) {
         return operacion.realizarseParaCirculo(this);
     }
 }
